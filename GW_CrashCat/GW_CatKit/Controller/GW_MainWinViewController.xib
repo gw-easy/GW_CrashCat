@@ -10,8 +10,8 @@
             <connections>
                 <outlet property="GW_XCArchiveFilesScrollView" destination="adk-IY-a8c" id="UvL-xZ-6af"/>
                 <outlet property="archiveFilesTableView" destination="1Vv-zM-8m0" id="3BZ-jo-gIS"/>
-                <outlet property="defaultSlideAddressLabel" destination="zYe-NZ-isJ" id="hpw-z2-tMA"/>
-                <outlet property="errorMemoryAddressLabel" destination="TPI-LZ-qpP" id="6gZ-N0-Ogm"/>
+                <outlet property="defaultSlideAddressLabel" destination="TPI-LZ-qpP" id="Gd0-3f-EzQ"/>
+                <outlet property="defaultStackAddressLabel" destination="zYe-NZ-isJ" id="XsP-yV-yn8"/>
                 <outlet property="errorMessageView" destination="x7h-wP-f5H" id="LTm-Jb-869"/>
                 <outlet property="radioBox" destination="c9B-1R-YZ9" id="fLn-x1-tRW"/>
                 <outlet property="searchBox" destination="qgx-q1-BzH" id="gLV-rv-Cnz"/>
@@ -144,7 +144,7 @@
                             <constraint firstAttribute="height" constant="40" id="r7j-bL-g0W"/>
                         </constraints>
                     </box>
-                    <box borderType="line" title="默认 Slide Address" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-DR-9vD">
+                    <box borderType="line" title="stack address " translatesAutoresizingMaskIntoConstraints="NO" id="aMP-DR-9vD">
                         <rect key="frame" x="5" y="229" width="524" height="44"/>
                         <view key="contentView" id="LDm-sx-owy">
                             <rect key="frame" x="3" y="3" width="518" height="26"/>
@@ -167,7 +167,7 @@
                             </constraints>
                         </view>
                     </box>
-                    <box borderType="line" title="错误信息内存地址" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-PU-Uou">
+                    <box borderType="line" title="slide address" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-PU-Uou">
                         <rect key="frame" x="5" y="179" width="524" height="44"/>
                         <view key="contentView" id="3gh-NU-QXn">
                             <rect key="frame" x="3" y="3" width="518" height="26"/>

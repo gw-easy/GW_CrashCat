@@ -22,8 +22,10 @@
 - (void)setArch:(NSString *)arch {
     _arch = arch;
     if([arch isEqualToString:@"arm64"]){
-        _defaultSlideAddress = @"0x0000000000000000";
+        _defaultStackAddress = @"0x0000000000000000";
+        _defaultSlideAddress = @"0x00000000";
     }else if([arch isEqualToString:@"armv7"]){
+        _defaultStackAddress = @"0x00000000";
         _defaultSlideAddress = @"0x00000000";
     }else{
         _defaultSlideAddress = @"";

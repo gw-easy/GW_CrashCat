@@ -16,6 +16,11 @@
 @property (nonatomic, copy) NSString *arch;
 
 /**
+ * 默认的 Stack Address
+ */
+@property (nonatomic, readonly) NSString *defaultStackAddress;
+
+/**
  * 默认的 Slide Address
  */
 @property (nonatomic, readonly) NSString *defaultSlideAddress;

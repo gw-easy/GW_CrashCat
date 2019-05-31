@@ -62,12 +62,12 @@
 /**
  *  显示默认的 Slide Address
  */
-@property (weak) IBOutlet NSTextField *defaultSlideAddressLabel;
+@property (weak) IBOutlet NSTextField *defaultStackAddressLabel;
 
 /**
  *  显示错误内存地址
  */
-@property (weak) IBOutlet NSTextField *errorMemoryAddressLabel;
+@property (weak) IBOutlet NSTextField *defaultSlideAddressLabel;
 
 /**
  *  错误信息
@@ -377,7 +377,7 @@
     _selectedUUIDInfo = nil;
     self.selectedUUIDLabel.stringValue = @"";
     self.defaultSlideAddressLabel.stringValue = @"";
-    self.errorMemoryAddressLabel.stringValue = @"";
+    self.defaultStackAddressLabel.stringValue = @"";
     [self.errorMessageView setString:@""];
 }
 
@@ -387,6 +387,7 @@
     _selectedUUIDInfo = _selectedArchiveInfo.uuidInfos[tag - 1];
     _selectedUUIDLabel.stringValue = _selectedUUIDInfo.uuid;
     _defaultSlideAddressLabel.stringValue = _selectedUUIDInfo.defaultSlideAddress;
+    _defaultStackAddressLabel.stringValue = _selectedUUIDInfo.defaultStackAddress;
 }
 
 - (void)doubleActionMethod{
@@ -406,11 +407,11 @@
         return;
     }
 
-    if([self.errorMemoryAddressLabel.stringValue isEqualToString:@""]){
+    if([self.defaultStackAddressLabel.stringValue isEqualToString:@""]){
         return;
     }
 
-    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -arch %@ -o \"%@\" -l %@ %@", self.selectedUUIDInfo.arch, self.selectedUUIDInfo.executableFilePath, self.defaultSlideAddressLabel.stringValue, self.errorMemoryAddressLabel.stringValue];
+    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -arch %@ -o \"%@\" -l %@ %@", self.selectedUUIDInfo.arch, self.selectedUUIDInfo.executableFilePath, self.defaultSlideAddressLabel.stringValue, self.defaultStackAddressLabel.stringValue];
     NSString *result = [self runCommand:commandString];
     [self.errorMessageView setString:result];
 }
