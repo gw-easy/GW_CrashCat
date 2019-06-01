@@ -22,7 +22,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="DSYMTools" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="zOM-W8-xO0" userLabel="Windows">
+        <window title="GW_CrashCat" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="zOM-W8-xO0" userLabel="Windows">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="335" y="390" width="534" height="508"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -299,7 +299,7 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="9702AE42-64E9-4D13-A760-7914E0B88D84" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="h4J-oC-2PD">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="EBBBDE2D-6A2B-40CC-9CA1-DB8534B67249" label="重置初始化数据" paletteLabel="" sizingBehavior="auto" id="PQk-FI-BG0">
+                    <toolbarItem implicitItemIdentifier="EBBBDE2D-6A2B-40CC-9CA1-DB8534B67249" label="初始化数据" paletteLabel="" sizingBehavior="auto" id="PQk-FI-BG0">
                         <nil key="toolTip"/>
                         <button key="view" verticalHuggingPriority="750" id="5it-Xd-vSx">
                             <rect key="frame" x="0.0" y="14" width="82" height="32"/>
@@ -325,10 +325,7 @@
                             </textFieldCell>
                         </textField>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="nwC-JR-P2v"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="MOs-5h-sNH"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Nu5-T2-Nnz"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="I3X-OO-m58"/>
                     <toolbarItem implicitItemIdentifier="D1D2B41E-9973-415A-B533-D56EB2494382" label="Export" paletteLabel="Export" tag="-1" image="export" id="V5j-ih-fiL">
                         <connections>
                             <action selector="exportIPA:" target="-2" id="bzQ-b4-lMm"/>

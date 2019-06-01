@@ -78,6 +78,9 @@
 
 @property (weak) IBOutlet GW_XCArchiveFilesScrollView *GW_XCArchiveFilesScrollView;
 
+//菊花
+@property (strong ,nonatomic) NSProgressIndicator *proIndecator;
+
 @end
 
 @implementation GW_MainWinViewController
@@ -111,15 +114,19 @@
 }
 
 - (void)reloadAllData{
+    [_proIndecator startAnimation:nil];
+    _proIndecator.hidden = false;
     NSArray *archiveFilePaths = [self allDSYMFilePath];
     [self handleArchiveFileWithPath:archiveFilePaths];
+    [_proIndecator stopAnimation:nil];
+    _proIndecator.hidden = true;
 }
 
 - (void)windowDidLoad{
     [super windowDidLoad];
     
     [self.window registerForDraggedTypes:@[NSColorPboardType, NSFilenamesPboardType]];
-
+    [self proIndecator];
     _searchBox.delegate = self;
     [self reloadAllData];
 }
@@ -482,5 +489,19 @@
     return YES;
 }
 
+#pragma mark - getter
+- (NSProgressIndicator *)proIndecator{
+    if (!_proIndecator) {
+        _proIndecator = [[NSProgressIndicator alloc] initWithFrame:CGRectMake(self.window.contentView.bounds.size.width/2-20, self.window.contentView.bounds.size.height/2-20, 40, 40)];
+        
+        _proIndecator.style = NSProgressIndicatorSpinningStyle;
+        _proIndecator.wantsLayer = YES;
+        _proIndecator.controlSize = NSControlSizeRegular;
+        [_proIndecator sizeToFit];
+        _proIndecator.hidden = true;
+        [self.window.contentView addSubview:_proIndecator];
+    }
+    return _proIndecator;
+}
 
 @end
