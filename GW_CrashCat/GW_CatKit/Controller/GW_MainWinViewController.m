@@ -91,11 +91,14 @@
 
 #pragma mark - 开始搜索
 - (IBAction)searchBtnAction:(id)sender {
+    if (_searchBox.stringValue.length < 1) {
+        return;
+    }
     @synchronized (self) {
         NSMutableArray *searchA = [NSMutableArray array];
         for (int i = 0; i<_archiveFilesInfo.count; i++) {
             GW_XCArchiveInfo *infoM = _archiveFilesInfo[i];
-            if ([infoM.archiveFileName containsString:_searchBox.stringValue]) {
+            if (infoM.archiveFileName && [[infoM.archiveFileName lowercaseString] containsString:[_searchBox.stringValue lowercaseString]]) {
                 [searchA addObject:infoM];
             }
         }
