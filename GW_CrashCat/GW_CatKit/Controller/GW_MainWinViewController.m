@@ -116,6 +116,33 @@
     [self.archiveFilesTableView reloadData];
 }
 
+#pragma mark - enter delete tab 响应事件
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
+    
+    if (control == _searchBox) {
+        if (commandSelector == @selector(insertNewline:)) {
+            [self searchBtnAction:nil];
+            NSLog(@"insertNewline");
+        }else if (commandSelector == @selector(deleteForward:)) {
+            //Do something against DELETE key
+            NSLog(@"deleteForward");
+        } else if (commandSelector == @selector(deleteBackward:)) {
+            //Do something against BACKSPACE key
+            NSLog(@"deleteBackward");
+        } else if (commandSelector == @selector(insertTab:)) {
+            //Do something against TAB key
+            NSLog(@"insertTab");
+        }
+    }
+    
+    // return YES 事件被拦截 键盘所做的操作无响应
+    return NO;
+}
+
+- (IBAction)returnAction:(id)sender{
+    NSLog(@"lihaile");
+}
+
 - (void)reloadAllData{
     [_proIndecator startAnimation:nil];
     _proIndecator.hidden = false;
