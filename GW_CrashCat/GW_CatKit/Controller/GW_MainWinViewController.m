@@ -240,8 +240,16 @@
             NSRange range = [result range];
             GW_UUIDInfo *uuidInfo = [[GW_UUIDInfo alloc] init];
             uuidInfo.arch = [uuidString substringWithRange:range];
+            if (uuidInfo.arch.length > 10) {
+                NSRange archRange = [uuidInfo.arch rangeOfString:@")"];
+                uuidInfo.arch = [uuidInfo.arch substringToIndex:archRange.location];
+            }
+//            NSLog(@"arch = %@",uuidInfo.arch);
             uuidInfo.uuid = [uuidString substringWithRange:NSMakeRange(6, range.location-6-2)];
-            uuidInfo.executableFilePath = [uuidString substringWithRange:NSMakeRange(range.location+range.length+2, [uuidString length]-(range.location+range.length+2))];
+//            NSLog(@"uuidString = %@",uuidString);
+            NSRange uuidStrRange = [uuidString rangeOfString:@"/"];
+            uuidInfo.executableFilePath = [uuidString substringFromIndex:uuidStrRange.location-1];
+//            NSLog(@"executableFilePath = %@",uuidInfo.executableFilePath);
             [uuidInfos addObject:uuidInfo];
         }
         archiveInfo.uuidInfos = uuidInfos;
