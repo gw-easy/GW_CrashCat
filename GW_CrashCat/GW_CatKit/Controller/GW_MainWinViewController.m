@@ -261,8 +261,11 @@
  */
 - (NSMutableArray *)allDSYMFilePath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *basePath = NSHomeDirectory();
     NSRange userRange = [NSHomeDirectory() rangeOfString:NSUserName()];
-    NSString *basePath = [NSHomeDirectory() substringToIndex:userRange.location+userRange.length];
+    if (userRange.length) {
+        basePath = [NSHomeDirectory() substringToIndex:userRange.location+userRange.length];
+    }
     NSString *archivesPath = [basePath stringByAppendingPathComponent:@"Library/Developer/Xcode/Archives/"];
     NSURL *bundleURL = [NSURL fileURLWithPath:archivesPath];
     NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtURL:bundleURL
@@ -455,8 +458,8 @@
     if([self.defaultStackAddressLabel.stringValue isEqualToString:@""]){
         return;
     }
-
-    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -arch %@ -o \"%@\" -l %@ %@", self.selectedUUIDInfo.arch, self.selectedUUIDInfo.executableFilePath, self.defaultSlideAddressLabel.stringValue, self.defaultStackAddressLabel.stringValue];
+//[NSString stringWithFormat:@"xcrun atos -arch %@ -o \"%@\" -l %@ %@"
+    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -arch %@ -o \'%@\' -l %@ %@", self.selectedUUIDInfo.arch, self.selectedUUIDInfo.executableFilePath, self.defaultSlideAddressLabel.stringValue, self.defaultStackAddressLabel.stringValue];
     NSString *result = [self runCommand:commandString];
     [self.errorMessageView setString:result];
 }
