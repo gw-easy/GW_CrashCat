@@ -2,8 +2,8 @@
 //  GW_MainWinViewController.m
 //  CustomModalWindow
 //
-//  Created by answer on 7/26/16.
-//  Copyright © 2016 answer. All rights reserved.
+//  Created by gw on 7/26/16.
+//  Copyright © 2016 gw. All rights reserved.
 //
 
 #import "GW_MainWinViewController.h"
@@ -458,8 +458,9 @@
     if([self.defaultStackAddressLabel.stringValue isEqualToString:@""]){
         return;
     }
-//[NSString stringWithFormat:@"xcrun atos -arch %@ -o \"%@\" -l %@ %@"
-    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -arch %@ -o \'%@\' -l %@ %@", self.selectedUUIDInfo.arch, self.selectedUUIDInfo.executableFilePath, self.defaultSlideAddressLabel.stringValue, self.defaultStackAddressLabel.stringValue];
+    
+    self.selectedUUIDInfo.executableFilePath = [self.selectedUUIDInfo.executableFilePath stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *commandString = [NSString stringWithFormat:@"xcrun atos -o \"%@\" -l %@ %@ -arch %@",self.selectedUUIDInfo.executableFilePath,self.defaultSlideAddressLabel.stringValue, self.defaultStackAddressLabel.stringValue, self.selectedUUIDInfo.arch];
     NSString *result = [self runCommand:commandString];
     [self.errorMessageView setString:result];
 }

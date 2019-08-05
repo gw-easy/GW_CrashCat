@@ -2,8 +2,8 @@
 //  GW_XCArchiveFilesScrollView.m
 //  DSYMTools
 //
-//  Created by answer on 7/29/16.
-//  Copyright © 2016 answer. All rights reserved.
+//  Created by gw on 7/29/16.
+//  Copyright © 2016 gw. All rights reserved.
 //
 
 #import "GW_XCArchiveFilesScrollView.h"
